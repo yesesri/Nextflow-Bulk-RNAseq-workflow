@@ -1,19 +1,37 @@
-# RNA-seq Nextflow (DSL2)
-bulk RNA-seq primary analysis 
+What you will find in this Repo : ready to use code snippets for processing RNAseq ( bulk )  datasets using Nextflow workflow. 
+
+
+  #### Git folder files and description 
+      Nextflow-Bulk-RNAseq-workflow
+      ├─ README.md - READ ME file
+      ├─ main.nf   - nextflow workflow 
+      ├─ nextflow.config - execution enviormemt 
+      ├─ conf/ - global parameters
+      │  ├─ base.config 
+      │  ├─ slurm.config
+      │  ├─ aws.config
+      │  └─ gcp.config
+      ├─ assets/ - example sample format and multiqc parameters 
+      │  ├─ samplesheet.csv
+      │  └─ multiqc_config.yaml
+      ├─ .gitignore - list of files / folders not to be tracked
+
+#### RNA-seq Nextflow (DSL2)
+    bulk RNA-seq primary analysis 
                             |_adapter trimming 
-                              |_fastQC
+                              |_fastQC ( pre and post adapter trim ) 
                                 |_Alignment ( STAR ) 
-                                  |_quantification ( Salmon ) 
+                                  |_quantification (featurecount) 
                                     |_multiQC
         
 
-# Requirements 
+#### Requirements 
     Nextflow >= 23.10
     Containers: Docker or Singularity/Apptainer
     References: genome FASTA and matched GTF
     Cloud: AWS/GCP credentials configured if using those profiles
 
-# nextflow command
+#### nextflow command
     nextflow run . \
     --samplesheet assets/samplesheet.csv \
     --fasta /path/to/genome.fa \
@@ -38,8 +56,7 @@ bulk RNA-seq primary analysis
 
         # GCP Life Sciences (adjust gcp.config & GCS paths)
         nextflow run . \
-          --samplesheet gs://my-bucket/samplesheet.csv \
-          --fasta gs://ref-bucket/genome.fa --gtf gs://ref-bucket/genes.gtf \
-          --outdir gs://my-bucket/results \
-          -profile gcp
+
+
+
 
