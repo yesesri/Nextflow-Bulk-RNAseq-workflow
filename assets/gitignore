@@ -1,0 +1,10 @@
+.work/
+work/
+.results/
+results/
+.nextflow*
+*.log
+*.trace
+*.dag.png
+*.html # keep MultiQC if you prefer, remove this line then
+.singularity/
