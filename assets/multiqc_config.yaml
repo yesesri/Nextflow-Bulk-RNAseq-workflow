@@ -1,0 +1,4 @@
+title: "RNA-seq MultiQC Report"
+subtitle: "fastp · FastQC · STAR · featureCounts"
+show_analysis_paths: false
+header_logo: null
